@@ -1,0 +1,24 @@
+{
+  "name": "blog",
+  "version": "0.0.1",
+  "description": "a simple AWS Lambda service which demonstrate the basic concepts of Serverless framework such as configuration in serverless.yaml file, creating event handler in node.js & integration to other AWS services.",
+  "main": "blogs.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WendySanarwanto/learn-serverless.git"
+  },
+  "keywords": [
+    "Serverless",
+    "Lambda",
+    "DynamoDB"
+  ],
+  "author": "Wendy Sanarwanto (wendy.sanarwanto@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WendySanarwanto/learn-serverless/issues"
+  },
+  "homepage": "https://github.com/WendySanarwanto/learn-serverless#readme"
+}
