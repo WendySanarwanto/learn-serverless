@@ -11,3 +11,19 @@ functions:
     handler: blogs.fetch
     events:
       - http: get blogs/fetch
+
+resources:
+  Resources:
+    Blogs:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: Blogs
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
