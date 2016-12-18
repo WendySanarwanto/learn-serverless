@@ -10,7 +10,12 @@
     "deploy:dev:sg": "npm run deploy:dev -- -r ap-southeast-1",
     "remove:dev": "serverless remove --stage dev",
     "remove:dev:useast1": "npm run remove:dev -- -r us-east-1",
-    "remove:dev:sg": "npm run remove:dev -- -r ap-southeast-1"
+    "remove:dev:sg": "npm run remove:dev -- -r ap-southeast-1",
+    "uselocaldb": "USE_LOCAL_DYNAMODB=true AWS_DEFAULT_REGION=us-west-2",
+    "setawsregion:useast1": "AWS_DEFAULT_REGION=us-east-1",
+    "invoke:blogFetch": "serverless invoke local -f blogsFetch",
+    "invoke:blogFetch:useast1": "npm run setawsregion:useast1 npm run invoke:blogFetch",
+    "invoke:blogFetch:ondblocal": "npm run uselocaldb npm run invoke:blogFetch"
   },
   "repository": {
     "type": "git",
@@ -28,6 +33,6 @@
   },
   "homepage": "https://github.com/WendySanarwanto/learn-serverless#readme",
   "dependencies": {
-    "aws": "0.0.3-2"
+    "aws-sdk": "^2.7.15"
   }
 }
