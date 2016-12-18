@@ -4,7 +4,13 @@
   "description": "a simple AWS Lambda service which demonstrate the basic concepts of Serverless framework such as configuration in serverless.yaml file, creating event handler in node.js & integration to other AWS services.",
   "main": "blogs.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy:dev": "serverless deploy --stage dev",
+    "deploy:dev:useast1": "npm run deploy:dev -- -r us-east-1",
+    "deploy:dev:sg": "npm run deploy:dev -- -r ap-southeast-1",
+    "remove:dev": "serverless remove --stage dev",
+    "remove:dev:useast1": "npm run remove:dev -- -r us-east-1",
+    "remove:dev:sg": "npm run remove:dev -- -r ap-southeast-1"
   },
   "repository": {
     "type": "git",
