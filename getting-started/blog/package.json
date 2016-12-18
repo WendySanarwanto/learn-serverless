@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/WendySanarwanto/learn-serverless/issues"
   },
-  "homepage": "https://github.com/WendySanarwanto/learn-serverless#readme"
+  "homepage": "https://github.com/WendySanarwanto/learn-serverless#readme",
+  "dependencies": {
+    "aws": "0.0.3-2"
+  }
 }
