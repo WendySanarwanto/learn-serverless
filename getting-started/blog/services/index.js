@@ -1,0 +1,1 @@
+module.exports.DynamoDbDataService = require('./dynamoDb.service');

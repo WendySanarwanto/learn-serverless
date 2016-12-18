@@ -1,20 +1,25 @@
 'use strict';
 
-// I wish node.js 4.3.2 has supported destructuring assignment 
-// so that I could destructure contents of repositoris using this code
-// import { BlogsRepository, OtherRepositories } from './repositories';
-let BlogsRepository = require('./repositories').BlogsRepository;
+let DynamoDbDataService = require('./services').DynamoDbDataService;
 
 module.exports.fetch = (event, context, callback) => {
-  let blogsRepo = new BlogsRepository();
-  const results = blogsRepo.retrieveBlogs();
+  const TABLE_NAME = 'Blogs';
+  const NUMBER_OF_ITEMS = 100;
+  let dynamoDbDataService = new DynamoDbDataService(TABLE_NAME, NUMBER_OF_ITEMS);
 
-  const response = {
-    statusCode: 200,
-    body: JSON.stringify(results),
-  };
+  // let blogsRepo = new BlogsRepository(dynamoDbDataService);
+  dynamoDbDataService.getAll()
+    .then((results) => {
+      const response = {
+        statusCode: 200,
+        body: JSON.stringify(results),
+      };
 
-  callback(null, response);
+      callback(null, response);
+    })
+    .catch((error) => {
+      callback(error);
+    });
 
   // Use this code if you don't use the http event with the LAMBDA-PROXY integration
   // callback(null, { message: 'Go Serverless v1.0! Your function executed successfully!', event });
