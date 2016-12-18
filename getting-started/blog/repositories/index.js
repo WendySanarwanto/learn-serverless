@@ -1,0 +1,1 @@
+module.exports.BlogsRepository = require('./blogs.repository');
