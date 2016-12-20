@@ -11,7 +11,10 @@ functions:
     handler: blogs.fetch
     events:
       - http: get blogs/fetch
-
+  blogsCreate:
+    handler: blogs.create
+    events:
+      - http: post blogs/create
 resources:
   Resources:
     Blogs:
