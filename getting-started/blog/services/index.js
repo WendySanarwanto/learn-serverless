@@ -1,1 +1,1 @@
-module.exports.DynamoDbDataService = require('./dynamoDb.service');
+module.exports.DynamoDbDataService = require('./dynamo-db.service');
