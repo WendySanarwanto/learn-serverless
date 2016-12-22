@@ -41,6 +41,7 @@ resources:
             - Effect: Allow
               Action:
                 - dynamodb:Scan
+                - dynamodb:PutItem
               Resource: arn:aws:dynamodb:*:*:table/Blogs
         Roles:
           - Ref: IamRoleLambdaExecution
