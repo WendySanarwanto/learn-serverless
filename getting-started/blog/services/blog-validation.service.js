@@ -8,7 +8,7 @@ class BlogValidationService {
         //this.errors = [];
         this.error = null;
 
-        // Each fields should be string typed value, minium length is 1 char & whitespaces only is not allowed
+        // Each fields should be string typed value, minimum length is 1 char & whitespaces only is not allowed
         const fieldSchema = {
             "type": "string",
             "minLength": 1,
@@ -33,7 +33,6 @@ class BlogValidationService {
         let ajv = new Ajv();
         const validate = ajv.compile(this.schema);
         const isValid = validate(this.blog);
-        // this.errors = [];
         this.error = null;
         if (!isValid) {
             // Transform each of 
