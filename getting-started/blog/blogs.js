@@ -1,7 +1,12 @@
 'use strict';
 
-let DynamoDbDataService = require('./services').DynamoDbDataService;
+const services = require('./services');
+let DynamoDbDataService = services.DynamoDbDataService;
+let BlogValidationService = services.BlogValidationService;
 
+/**
+ * Invoked when HTTP GET Event is triggered on /blogs/fetch endpoint.
+ */
 module.exports.fetch = (event, context, callback) => {
   const TABLE_NAME = 'Blogs';
   const NUMBER_OF_ITEMS = 100;
@@ -25,14 +30,24 @@ module.exports.fetch = (event, context, callback) => {
   // callback(null, { message: 'Go Serverless v1.0! Your function executed successfully!', event });
 };
 
+/**
+ * Invoked when HTTP POST Event is triggered on /blogs/create endpoint.
+ */
 module.exports.create = (event, context, callback) => {
-  // console.log('[DEBUG-blogsCreate] - event=', event);
-  // console.log('[DEBUG-blogsCreate] - context=', context);
+  const requestPayload = event.body;
+
+  // Do simple validation to check title, categories & content
+  const blogValidation = new BlogValidationService(requestPayload);
+  if (!blogValidation.validate()){
+    return callback(blogValidation.error);
+  }
+
+  // TODO: Implement creating a new record on AWS DynamoDB
   
-  // TODO: Implement this  
+
   const response = {
     statusCode: 200,
-    body: event.body,
+    body: requestPayload,
   };  
 
   callback(null, response)
