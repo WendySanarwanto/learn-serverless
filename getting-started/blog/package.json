@@ -4,7 +4,7 @@
   "description": "a simple AWS Lambda service which demonstrate the basic concepts of Serverless framework such as configuration in serverless.yaml file, creating event handler in node.js & integration to other AWS services.",
   "main": "blogs.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node_modules/mocha/bin/mocha",
     "deploy:dev": "serverless deploy --stage dev",
     "deploy:dev:useast1": "npm run deploy:dev -- -r us-east-1",
     "deploy:dev:sg": "npm run deploy:dev -- -r ap-southeast-1",
@@ -33,6 +33,11 @@
   },
   "homepage": "https://github.com/WendySanarwanto/learn-serverless#readme",
   "dependencies": {
+    "ajv": "^5.0.0-beta.1",
     "aws-sdk": "^2.7.15"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
   }
 }
