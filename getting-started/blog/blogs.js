@@ -12,7 +12,6 @@ module.exports.fetch = (event, context, callback) => {
   const NUMBER_OF_ITEMS = 100;
   let dynamoDbDataService = new DynamoDbDataService(TABLE_NAME, NUMBER_OF_ITEMS);
 
-  // let blogsRepo = new BlogsRepository(dynamoDbDataService);
   dynamoDbDataService.getAll()
     .then((results) => {
       const response = {
