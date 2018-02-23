@@ -1,0 +1,22 @@
+{
+  "name": "demo-api",
+  "version": "0.0.1",
+  "description": "A simple API built by using Serverless framework & AWS Lambda",
+  "main": "index.js",
+  "dependencies": {
+    "aws-cli": "0.0.2",
+    "aws-sdk": "^2.199.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "npm run test",
+    "deploy": "serverless deploy --stage dev --region ap-southeast-1"
+  },
+  "keywords": [
+    "serverless",
+    "lambda",
+    "dynamodb"
+  ],
+  "author": "Wendy Sanarwanto <wendy.sanarwanto@mitrais.com>",
+  "license": "MIT"
+}
